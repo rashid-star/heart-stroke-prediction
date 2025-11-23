@@ -1,6 +1,3 @@
-# app.py
-# Requirements: classifier.pkl, scaler.pkl, features.json (placed in same folder)
-
 import streamlit as st
 import pandas as pd
 import pickle, json, traceback
