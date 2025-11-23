@@ -14,7 +14,7 @@ st.markdown(
     <style>
       /* container padding (reduce top/bottom/side spacing) */
       .main .block-container{
-        padding-top: 5px;
+        padding-top: 4px;
         padding-bottom: 6px;
         padding-left: 10px;
         padding-right: 10px;
