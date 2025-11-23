@@ -28,3 +28,12 @@ Used **Heart Stroke Prediction Dataset**.
 - Matplotlib / Seaborn
 - Streamlit
   
+# open README.md quickly in default editor (Windows)
+notepad README.md
+# Then paste the URL under a Live demo section OR run the following to append:
+
+Add-Content README.md "`n## Live demo`nhttps://hearts-stroke-risk-prediction.streamlit.app/`n"
+
+git add README.md
+git commit -m "Add live demo link"
+git push origin main
