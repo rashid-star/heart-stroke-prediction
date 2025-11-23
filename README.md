@@ -27,5 +27,4 @@ Used **Heart Stroke Prediction Dataset**.
 - Scikit-learn
 - Matplotlib / Seaborn
 - Streamlit
-
-## ▶ Run Locally
+  
