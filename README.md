@@ -1,19 +1,14 @@
 # Heart Stroke Risk Prediction
 
-A Streamlit web app that predicts heart disease risk from patient health details using a trained K-Nearest Neighbors model.
+A Streamlit machine learning app that predicts heart disease risk from patient health details.
 
-## Project Overview
+## Features
 
-This project uses a machine learning workflow to:
-
-- load and preprocess heart disease data
-- encode categorical features
-- scale the inputs with `StandardScaler`
-- train a `KNeighborsClassifier`
-- save the trained model and feature metadata
-- serve predictions through a Streamlit user interface
-
-The app is designed to make the model easy to explain and demonstrate in class.
+- Interactive Streamlit user interface
+- Input-based heart disease risk prediction
+- Saved machine learning model with scaler and feature metadata
+- Probability-based result display with adjustable threshold
+- Easy to explain for demos, viva, and college presentation
 
 ## Tech Stack
 
@@ -22,74 +17,51 @@ The app is designed to make the model easy to explain and demonstrate in class.
 - NumPy
 - Scikit-learn
 - Streamlit
+- Matplotlib
+- Seaborn
 
-## Files
+## Project Files
 
 - `app.py` - Streamlit application
-- `Heart_Stroke_Prediction.ipynb` - notebook used for training and experimentation
+- `Heart_Stroke_Prediction.ipynb` - training and experimentation notebook
+- `Heart_Stroke_Risk_Prediction.ipynb` - updated notebook version from the GitHub side
 - `HeartDesies.csv` - dataset
-- `classifier.pkl` - saved trained model
+- `classifier.pkl` - trained model
 - `scaler.pkl` - saved scaler
-- `features.json` - saved feature order for inference
-- `requirements.txt` - project dependencies
+- `features.json` - feature order used during prediction
+- `requirements.txt` - dependencies
 
 ## How It Works
 
-1. The notebook prepares the dataset and trains the KNN model.
-2. The model, scaler, and feature list are saved using `pickle` and `json`.
-3. The Streamlit app loads those saved files.
-4. User input is converted into the exact feature format expected by the model.
-5. The app returns a prediction for heart disease risk.
+1. The dataset is loaded and preprocessed.
+2. Categorical values are encoded and features are scaled.
+3. A KNN classifier is trained in the notebook.
+4. The model, scaler, and feature list are saved.
+5. The Streamlit app loads those saved files and predicts the result from user input.
+
+## Output
+
+- `0` = Low risk / No heart disease predicted
+- `1` = High risk / Heart disease predicted
+
+The app can also show a probability score when the model supports it.
 
 ## Run Locally
-
-Create and activate a virtual environment, then install dependencies:
 
 ```powershell
 python -m venv env
 .\env\Scripts\activate
 pip install -r requirements.txt
-```
-
-Run the Streamlit app:
-
-```powershell
 python -m streamlit run app.py
 ```
 
-## Sample Input Features
+## Live Demo
 
-The app accepts values such as:
+https://hearts-stroke-risk-prediction.streamlit.app/
 
-- Age
-- Sex
-- Chest Pain Type
-- Resting Blood Pressure
-- Cholesterol
-- Fasting Blood Sugar
-- Resting ECG
-- Max Heart Rate
-- Oldpeak
-- Exercise Angina
-- ST Slope
+## GitHub Repository
 
-## Output
-
-The model predicts one of these outcomes:
-
-- `0` = Low risk / No heart disease predicted
-- `1` = High risk / Heart disease predicted
-
-## Deployment
-
-This project can be deployed with Streamlit Community Cloud by linking the GitHub repository and selecting:
-
-- main file: `app.py`
-- dependency file: `requirements.txt`
-
-## GitHub
-
-Repository: [rashid-star/heart-stroke-prediction](https://github.com/rashid-star/heart-stroke-prediction)
+https://github.com/rashid-star/heart-stroke-prediction
 
 ## Author
 
