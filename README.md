@@ -54,7 +54,6 @@ python -m venv env
 pip install -r requirements.txt
 python -m streamlit run app.py
 ```
-
 ## Live Demo
 
 https://hearts-stroke-risk-prediction.streamlit.app/
