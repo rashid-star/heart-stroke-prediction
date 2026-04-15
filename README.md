@@ -24,7 +24,6 @@ A Streamlit machine learning app that predicts heart disease risk from patient h
 
 - `app.py` - Streamlit application
 - `Heart_Stroke_Prediction.ipynb` - training and experimentation notebook
-- `Heart_Stroke_Risk_Prediction.ipynb` - updated notebook version from the GitHub side
 - `HeartDesies.csv` - dataset
 - `classifier.pkl` - trained model
 - `scaler.pkl` - saved scaler
