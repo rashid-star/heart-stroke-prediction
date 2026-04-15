@@ -84,15 +84,78 @@ def build_input_row(features_list, inputs):
 
 
 def result_card_html(prediction, probability):
-    probability_text = f"{probability:.3f}" if probability is not None else "N/A"
-    if prediction == 1:
-        return (
-            "<div class='result-card' style='background:#fff0f0;color:#a30;'>"
-            f"<b>HIGH RISK (1)</b> &nbsp; Prob: {probability_text}</div>"
+    """Return an HTML card summarising the prediction result.
+
+    Risk categories are derived from the raw probability value so the display
+    is always nuanced, regardless of the user-chosen threshold.
+    """
+    if probability is not None:
+        pct = probability * 100
+        prob_text = f"{pct:.1f}%"
+        bar_width = f"{pct:.1f}"
+
+        # Determine risk category and colours from the probability value
+        if pct < 20:
+            risk_label = "&#x2705; Very Low Risk"
+            card_bg = "#f0fff4"
+            card_color = "#1a7f3c"
+            border_color = "#2ecc71"
+            advice = "Your indicators look healthy. Maintain your current lifestyle."
+        elif pct < 40:
+            risk_label = "&#x1F7E2; Low Risk"
+            card_bg = "#f4fff0"
+            card_color = "#2e7d32"
+            border_color = "#66bb6a"
+            advice = "Risk is low. Keep exercising and eating well."
+        elif pct < 60:
+            risk_label = "&#x1F7E1; Moderate Risk"
+            card_bg = "#fffde7"
+            card_color = "#f57f17"
+            border_color = "#fbc02d"
+            advice = "Some risk factors detected. Consider a medical check-up."
+        elif pct < 80:
+            risk_label = "&#x1F7E0; High Risk"
+            card_bg = "#fff3e0"
+            card_color = "#e65100"
+            border_color = "#fb8c00"
+            advice = "Significant risk factors present. Consult a doctor soon."
+        else:
+            risk_label = "&#x26A0; Very High Risk"
+            card_bg = "#ffebee"
+            card_color = "#b71c1c"
+            border_color = "#e53935"
+            advice = "Please see a doctor or stroke specialist as soon as possible."
+
+        bar_html = (
+            f"<div style='background:#ddd;border-radius:4px;height:10px;margin:8px 0 4px 0;'>"
+            f"<div style='background:{border_color};width:{bar_width}%;height:10px;"
+            f"border-radius:4px;transition:width 0.4s ease;'></div></div>"
         )
+    else:
+        prob_text = "N/A"
+        bar_html = ""
+        if prediction == 1:
+            risk_label = "&#x26A0; High Risk"
+            card_bg = "#ffebee"
+            card_color = "#b71c1c"
+            border_color = "#e53935"
+            advice = "High risk predicted. Please consult a doctor or stroke specialist."
+        else:
+            risk_label = "&#x2705; Low Risk"
+            card_bg = "#f0fff4"
+            card_color = "#1a7f3c"
+            border_color = "#2ecc71"
+            advice = "Low risk predicted. Maintain a healthy lifestyle."
+
     return (
-        "<div class='result-card' style='background:#f0fff6;color:#0a7;'>"
-        f"<b>LOW RISK (0)</b> &nbsp; Prob: {probability_text}</div>"
+        f"<div class='result-card' style='background:{card_bg};color:{card_color};"
+        f"border-left:5px solid {border_color};padding:14px;border-radius:8px;margin-top:8px;'>"
+        f"<div style='font-size:20px;font-weight:bold;'>{risk_label}</div>"
+        f"<div style='font-size:14px;margin-top:4px;'>"
+        f"Stroke Probability: <b>{prob_text}</b></div>"
+        f"{bar_html}"
+        f"<div style='font-size:13px;color:#555;margin-top:6px;'>{advice}</div>"
+        f"</div>"
     )
 
 
