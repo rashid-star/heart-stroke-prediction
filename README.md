@@ -41,10 +41,18 @@ A Streamlit machine learning app that predicts heart disease risk from patient h
 
 ## Output
 
-- `0` = Low risk / No heart disease predicted
-- `1` = High risk / Heart disease predicted
+The result card shows a **stroke probability percentage** with a colour-coded risk level and a brief advisory message:
 
-The app can also show a probability score when the model supports it.
+| Probability | Risk Level | Colour |
+|-------------|-----------|--------|
+| 0 – <20 % | ✅ Very Low Risk | Green |
+| 20 – <40 % | 🟢 Low Risk | Light green |
+| 40 – <60 % | 🟡 Moderate Risk | Yellow |
+| 60 – <80 % | 🟠 High Risk | Orange |
+| 80 – 100 % | ⚠️ Very High Risk | Red |
+
+A visual progress bar and a short health advisory are included in the card.  
+The **Threshold** slider lets you adjust the cut-off used to assign the final binary label (High / Low).
 
 ## Run Locally
 
