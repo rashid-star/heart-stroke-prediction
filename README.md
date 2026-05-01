@@ -1,4 +1,4 @@
-# Heart Stroke Risk Prediction
+# Heart Stroke Prediction
 
 A Streamlit machine learning app that predicts heart disease risk from patient health details.
 
