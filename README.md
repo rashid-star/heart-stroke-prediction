@@ -65,10 +65,6 @@ python -m streamlit run app.py
 
 https://hearts-stroke-risk-prediction.streamlit.app/
 
-## GitHub Repository
-
-https://github.com/rashid-star/heart-stroke-prediction
-
 ## Author
 
 Mohammad Rashid
